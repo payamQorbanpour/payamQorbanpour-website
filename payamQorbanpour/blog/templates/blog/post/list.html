@@ -9,14 +9,17 @@
   {% endif %}
     {% for post in posts %}
     <div class="postBottom">
-      <h2 class="blog-post-title">
+      <h2 class="blog-post-title text-center">
         <a href="{{ post.get_absolute_url }}">
           {{ post.title }}
         </a>
       </h2>
-      <p class="blog-post-meta">
+      <p class="blog-post-meta text-center">
       Published {{ post.publish }} by {{ post.author }}
       </p>
+      {% if post.image %}
+      <img class="pb-4 col-12 img-responsive" src="{{ post.image.url }}" alt="">
+      {% endif %}
       {{ post.body|markdown|truncatewords_html:30 }}
       <p class="tags">
         Tags:

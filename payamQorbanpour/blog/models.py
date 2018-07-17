@@ -12,6 +12,9 @@ class PublishedManager(models.Manager):
         return super(PublishedManager, self).get_queryset().filter(status='published')
 
 
+def uploadLocation(post, filename):
+    return "%s/%s" %(post.slug, filename)
+
 class Post(models.Model):
     STATUS_CHOICES = (
         ('draft', 'Draft'),
@@ -20,9 +23,9 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     author = models.ForeignKey(User, related_name='blog_posts', on_delete=models.CASCADE)
-    image = models.FileField(null=True, blank=True)
+    image = models.FileField(upload_to=uploadLocation, null=True, blank=True)
     body = models.TextField()
-    tags = TaggableManager()
+    tags = TaggableManager(blank=True)
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

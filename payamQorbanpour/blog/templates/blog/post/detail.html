@@ -12,6 +12,9 @@
       {{ total_comments }} comment{{ total_comments|pluralize }}
   {% endwith %}
   </p>
+  {% if post.image %}
+  <img class="pb-4 col-12 img-responsive" src="{{ post.image.url }}" alt="">
+  {% endif %}
     {{ post.body|markdown }}
   <p class="pt-4">
     <span class="blog-post-meta">Share this post by:</span>
