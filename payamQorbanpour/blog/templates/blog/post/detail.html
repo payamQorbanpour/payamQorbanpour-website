@@ -1,35 +1,64 @@
 {% extends "blog/base.html" %}
+{% load blog_tags %}
 
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
-  <h1>{{ post.title }}</h1>
-  <p class="blog-post-meta">
+  <h1 class="text-center">{{ post.title }}</h1>
+  <p class="blog-post-meta text-center">
   Published {{ post.publish }} by {{ post.author }}
+  <span class="px-2">/</span>  <!-- Divider -->
+  {% with comments.count as total_comments %}
+      {{ total_comments }} comment{{ total_comments|pluralize }}
+  {% endwith %}
   </p>
-  {{ post.body|linebreaks }}
-  <p>
+    {{ post.body|markdown }}
+  <p class="pt-4">
+    <span class="blog-post-meta">Share this post by:</span>
     <a href="{% url "blog:post_share" post.id %}">
-      Share this post
+      <i class="fa fa-lg fa-envelope-square"></i>
+    </a>
+    <span class="px-2">/</span>  <!-- Divider -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">
+      <i class="fa fa-lg fa-facebook-square"></i>
+    </a>
+    <span class="px-2">/</span>  <!-- Divider -->
+    <a href="https://twitter.com/home?status={{ shareString|truncatewords_html:30 }}%20{{ request.build_absolute_uri }}">
+    <i class="fa fa-lg fa-twitter-square"></i>
+    </a>
+    <span class="px-2">/</span>  <!-- Divider -->
+    <a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'>
+      <i class="fa fa-lg fa-google-plus-square"></i>
+    </a>
+    <span class="px-2">/</span>  <!-- Divider -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ post.title }}&summary={{ shareString }}&source={{ request.build_absolute_uri }}">
+      <i class="fa fa-lg fa-linkedin-square"></i>
     </a>
   </p>
-  <h2>Similar posts</h2>
-  {% for post in similar_posts %}
-  <p>
-    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-  </p>
-  {% empty %}
-  There are no similar posts yet.
+  <div class="text-center">
+  <h4 class="text-center">Similar posts</h4>
+    {% for post in similar_posts %}
+    <p class="d-inline text-center">
+      <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+    </p>
+    {% if similar_posts.count != 1 %}
+      <span class="px-2">/</span>  <!-- Divider -->
+    {% endif %}
+    {% empty %}
+  <p class="text-center">There are no similar posts yet.</p>
   {% endfor %}
+</div>
+  <div class="commentWrapper postBottom">
   {% with comments.count as total_comments %}
-    <h2>
+    <h4>
       {{ total_comments }} comment{{ total_comments|pluralize }}
-    </h2>
+    </h4>
   {% endwith %}
+
   {% for comment in comments %}
   <div class="comment">
     <p class="info">
-      Comment {{ forloop.counter }} by {{ comment.name }}
+      Comment by <i>{{ comment.name }}</i>
       {{ comment.created }}
     </p>
     {{ comment.body|linebreaks }}
@@ -40,6 +69,7 @@
     {% if new_comment %}
       <h2>Your comment has been added.</h2>
     {% else %}
+  </div>
       <h2>Add a new comment</h2>
       <form action="." method="post">
         {{ comment_form.as_p }}

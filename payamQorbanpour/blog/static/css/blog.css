@@ -1,5 +1,4 @@
 /* stylelint-disable selector-list-comma-newline-after */
-
 .blog-header {
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
@@ -92,6 +91,15 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/*********** Jumbotron ***********/
+.blogJumbotron
+{
+  height: 30em;
+  background: url(../jumbo.png);
+}
+
+
+
 /* Pagination */
 .blog-pagination {
   margin-bottom: 4rem;
@@ -107,13 +115,21 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 4rem;
 }
 .blog-post-title {
-  margin-bottom: .25rem;
-  font-size: 2.5rem;
+  /* margin-bottom: .25rem;
+  font-size: 2.5rem; */
+
 }
 .blog-post-meta {
   margin-bottom: 1.25rem;
   color: #999;
 }
+
+.postBottom
+{
+  margin-bottom: 10px;
+  border-bottom:0.5px solid #00abff;
+}
+
 a
 {
    color:#00abff;
@@ -132,9 +148,10 @@ input, textarea {
     float:left;
     margin:0 0 10px;
     background:#ededed;
-    border:0;
+    border:0.5px solid #eee;
     padding:6px 10px;
     font-size:12px;
+    min-width: 100%;
 }
 input[type=submit] {
     font-weight:bold;
@@ -153,6 +170,12 @@ input[type=submit] {
 
 
 /* comments */
+.commentWrapper
+{
+  border: 0.5px solid #ddd;
+  padding: 15px;
+  margin: 30px 0 30px 0;
+}
 .comment {
     padding:10px;
 }

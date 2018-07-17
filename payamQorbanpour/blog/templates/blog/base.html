@@ -1,3 +1,4 @@
+{% load blog_tags %}
 {% load staticfiles %}
 
 <!doctype html>
@@ -16,18 +17,24 @@
 
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <!-- Main css -->
     <link href= "{% static "css/blog.css" %}" rel="stylesheet">
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
   <body>
-
     <div class="container">
       <header class="blog-header py-3">
+        <div class="pb-4 text-center d-block d-sm-none">
+          <a class="blog-header-logo text-dark" href="#">payamQorbanpour</a>
+        </div>
         <div class="row flex-nowrap justify-content-between align-items-center">
           <div class="col-4 pt-1">
-            <a class="text-muted" href="#">Subscribe</a>
+            <a class="text-muted" href="{% url "blog:post_feed" %}">Subscribe</a>
           </div>
-          <div class="col-4 text-center">
+          <div class="col-4 text-center d-none d-sm-block">
             <a class="blog-header-logo text-dark" href="#">payamQorbanpour</a>
           </div>
           <div class="col-4 d-flex justify-content-end align-items-center">
@@ -45,14 +52,16 @@
           <a class="p-2 text-muted" href="#">U.S.</a>
           <a class="p-2 text-muted" href="#">Technology</a>
       </div>
+    </div>
 
-      <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+      <div class="blogJumbotron p-3 p-md-5">
         <div class="col-md-6 px-0">
           <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
           <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
           <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
         </div>
       </div>
+
 
       <!-- <div class="row mb-2">
         <div class="col-md-6">
@@ -83,9 +92,9 @@
             <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
           </div>
         </div>
-      </div> -->
-    </div>
-
+      </div>
+    </div> -->
+  <div class="container">
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8 blog-main">
@@ -108,7 +117,28 @@
             <h4 class="font-italic">Archives</h4>
             <ol class="list-unstyled mb-0">
               <li><a href="#">March 2014</a></li>
+            </ol>
+          </div>
 
+          <div class="p-3">
+            <h4 class="font-italic">Latest Posts</h4>
+            <ol class="list-unstyled mb-0">
+              <p>I've written {% total_posts %} posts so far.</p>
+              {% show_latest_posts 5 %}
+            </ol>
+          </div>
+
+          <div class="p-3">
+            <h4 class="font-italic">Most commented posts</h4>
+            {% get_most_commented_posts as most_commented_posts %}
+            <ol class="list-unstyled mb-0">
+              <ul>
+                {% for post in most_commented_posts %}
+                  <li>
+                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
             </ol>
           </div>
 
@@ -131,7 +161,7 @@
         &copy;payamQobrnapour
       </p>
       <p>
-        <a href="#">Back to top</a>
+        <a id="back2Top" href="#">Back to top</a>
       </p>
     </footer>
 
@@ -143,12 +173,12 @@
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
     <script src="../../assets/js/vendor/holder.min.js"></script>
-    <script>
+    <!-- <script>
       Holder.addTheme('thumb', {
         bg: '#55595c',
         fg: '#eceeef',
         text: 'Thumbnail'
       });
-    </script>
+    </script> -->
   </body>
 </html>
