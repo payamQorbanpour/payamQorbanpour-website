@@ -37,6 +37,10 @@
     <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ post.title }}&summary={{ shareString }}&source={{ request.build_absolute_uri }}">
       <i class="fa fa-lg fa-linkedin-square"></i>
     </a>
+    <span class="px-2">/</span>  <!-- Divider -->
+    <a href='https://telegram.me/share?url={{ request.build_absolute_uri }}'>
+      <i class="fa fa-lg fa-telegram"></i>
+    </a>
   </p>
   <div class="text-center">
   <h4 class="text-center">Similar posts</h4>
