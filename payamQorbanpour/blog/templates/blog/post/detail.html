@@ -4,19 +4,39 @@
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
-  <h1 class="text-center">{{ post.title }}</h1>
-  <p class="blog-post-meta text-center">
-  Published {{ post.publish }} by {{ post.author }}
-  <span class="px-2">/</span>  <!-- Divider -->
-  {% with comments.count as total_comments %}
+<div class="row py-4">
+  <div class="col-3">
+  </div>
+  <div class="col-6">
+    {% if post.image %}
+    <img class="pb-4 col-12 img-responsive" src="{{ post.image.url }}" alt="">
+    {% endif %}
+  </div>
+  <div class="col-3">
+  </div>
+</div><!-- /.row -->
+
+<div class="row shadow-lg pb-5">
+  <div class="col-2">
+  </div>
+  <div class="col-8">
+    <h1 class="text-center">{{ post.title }}</h1>
+    <p class="blog-post-meta text-center">
+      Published {{ post.publish }} by {{ post.author }}
+      <span class="px-2">/</span>  <!-- Divider -->
+      {% with comments.count as total_comments %}
       {{ total_comments }} comment{{ total_comments|pluralize }}
-  {% endwith %}
-  </p>
-  {% if post.image %}
-  <img class="pb-4 col-12 img-responsive" src="{{ post.image.url }}" alt="">
-  {% endif %}
-    {{ post.body|markdown }}
-  <p class="pt-4">
+      {% endwith %}
+    </p>
+    <p class="blog-post-meta text-center">
+      {{ post.body|markdown }}
+    </p>
+  </div>
+  <div class="col-2">
+  </div>
+</div>
+
+  <p class="py-4">
     <span class="blog-post-meta">Share this post by:</span>
     <a href="{% url "blog:post_share" post.id %}">
       <i class="fa fa-lg fa-envelope-square"></i>
@@ -42,6 +62,7 @@
       <i class="fa fa-lg fa-telegram"></i>
     </a>
   </p>
+
   <div class="text-center">
   <h4 class="text-center">Similar posts</h4>
     {% for post in similar_posts %}
