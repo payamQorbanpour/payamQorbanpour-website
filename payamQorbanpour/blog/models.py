@@ -25,7 +25,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, related_name='blog_posts', on_delete=models.CASCADE)
     image = models.FileField(upload_to=uploadLocation, null=True, blank=True)
     body = models.TextField()
-    tags = TaggableManager(blank=True)
+    tags = TaggableManager(blank=True, related_name='tags')
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
