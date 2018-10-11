@@ -201,3 +201,9 @@ input[type=submit] {
 .blog-footer p:last-child {
   margin: 0;
 }
+
+
+.dir_rtl {
+    direction: rtl !important;
+    float: right !important;
+}

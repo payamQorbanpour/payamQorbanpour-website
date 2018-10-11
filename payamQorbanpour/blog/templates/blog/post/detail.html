@@ -28,7 +28,7 @@
       {{ total_comments }} comment{{ total_comments|pluralize }}
       {% endwith %}
     </p>
-    <p class="blog-post-meta text-center">
+    <p class="blog-post-meta text-center dir_rtl">
       {{ post.body|markdown }}
     </p>
   </div>
@@ -67,15 +67,22 @@
   <div class="col-lg-2"></div>
   <div class=" col-lg-8">
     <h4 class="text-center">Similar Posts</h4>
+    <hr>
     <div class="grid">
       {% for post in similar_posts %}
       <div class="col-lg-4 grid-item pb-3">
-        <img class="col-lg-12" src="{{ post.image.url }}">
-      <div class="text-center">
-        <a href="{{ post.get_absolute_url }}">
-          {{ post.title }}
-        </a>
-      </div>
+        <div class="text-center mb-1">
+          <a href="{{ post.get_absolute_url }}">
+            <img class="col-lg-12" src="{{ post.image.url }}">
+          </a>
+        </div>
+        <div class="text-center">
+          <a href="{{ post.get_absolute_url }}">
+            <h6>
+              {{ post.title }}
+            </h6>
+          </a>
+        </div>
       </div>
       {% empty %}
         <p class="text-center">There are no similar posts yet.</p>
