@@ -12,7 +12,6 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-
         <div class="container">
           <div class="carousel-caption text-center text-dark">
             <h1>Example headline.</h1>
@@ -29,7 +28,6 @@
         </div>
       </div>
       <div class="carousel-item">
-
         <div class="container">
           <div class="carousel-caption text-center text-dark">
             <h1>One more for good measure.</h1>
@@ -58,7 +56,7 @@
   {% endif %}
   <div class="row grid">
     {% for post in posts %}
-    <div class="grid-item col-4 py-5">
+    <div class="grid-item col-lg-4 col-md-4 col-sm-6 col-xs-12 py-5">
       {% if post.image %}
       <a href="{{ post.get_absolute_url }}">
         <img class="pb-4 col-12 img-responsive" src="{{ post.image.url }}" alt="">

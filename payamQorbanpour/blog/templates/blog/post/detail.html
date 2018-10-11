@@ -5,21 +5,21 @@
 
 {% block content %}
 <div class="row py-4">
-  <div class="col-3">
+  <div class="col-lg-3 col-md-3 col-sm-0 col-xs-0">
   </div>
-  <div class="col-6">
+  <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
     {% if post.image %}
     <img class="pb-4 col-12 img-responsive" src="{{ post.image.url }}" alt="">
     {% endif %}
   </div>
-  <div class="col-3">
+  <div class="col-lg-3 col-md-3 col-sm-0 col-xs-0">
   </div>
 </div><!-- /.row -->
 
 <div class="row shadow-lg pb-5">
   <div class="col-2">
   </div>
-  <div class="col-8">
+  <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
     <h1 class="text-center">{{ post.title }}</h1>
     <p class="blog-post-meta text-center">
       Published {{ post.publish }} by {{ post.author }}
@@ -36,7 +36,7 @@
   </div>
 </div>
 
-  <p class="py-4">
+  <p class="col-12 py-4">
     <span class="blog-post-meta">Share this post by:</span>
     <a href="{% url "blog:post_share" post.id %}">
       <i class="fa fa-lg fa-envelope-square"></i>
@@ -63,19 +63,28 @@
     </a>
   </p>
 
-  <div class="text-center">
-  <h4 class="text-center">Similar posts</h4>
-    {% for post in similar_posts %}
-    <p class="d-inline text-center">
-      <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-    </p>
-    {% if similar_posts.count != 1 %}
-      <span class="px-2">/</span>  <!-- Divider -->
-    {% endif %}
-    {% empty %}
-  <p class="text-center">There are no similar posts yet.</p>
-  {% endfor %}
+<div class="row">
+  <div class="col-lg-2"></div>
+  <div class=" col-lg-8">
+    <h4 class="text-center">Similar Posts</h4>
+    <div class="grid">
+      {% for post in similar_posts %}
+      <div class="col-lg-4 grid-item pb-3">
+        <img class="col-lg-12" src="{{ post.image.url }}">
+      <div class="text-center">
+        <a href="{{ post.get_absolute_url }}">
+          {{ post.title }}
+        </a>
+      </div>
+      </div>
+      {% empty %}
+        <p class="text-center">There are no similar posts yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="col-lg-2"></div>
 </div>
+
   <div class="commentWrapper postBottom">
   {% with comments.count as total_comments %}
     <h4>
