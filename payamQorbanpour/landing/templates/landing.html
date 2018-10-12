@@ -1,16 +1,27 @@
 {% extends "blog/base.html" %}
+{% load staticfiles %}
 
 {% block title %}payamQorbanpour{% endblock %}
 
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 centered">
-      <img src="img/user.png" alt="Stanley">
-      <h1>Hi, I am Stanley!</h1>
-      <p>Hello everybody. I'm Stanley, a free handsome bootstrap theme coded by BlackTie.co. A really simple theme for those wanting to showcase their work with a cute & clean style.</p>
-      <p>Please, consider to register to <a href="http://eepurl.com/IcgkX">our newsletter</a> to be updated with our latest themes and freebies. Like always, you can use this theme in any project freely. Share it with your friends.</p>
+    <div class="col-2"></div>
+    <div class="col-lg-8 col-lg-offset-2 text-center">
+
+      <div class="row py-4">
+        <!-- <div class="col-lg-2 col-md-4 col-sm-0 col-xs-0"></div> -->
+        <div class="text-center col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <img class="col-12 image-responsive" src="{% static "user.jpeg" %}" alt="PayamQorbanpour">
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pt-5">
+          <h1>Hi, I am Stanley!</h1>
+          <p>Hello everybody. I'm Stanley, a free handsome bootstrap theme coded by BlackTie.co. A really simple theme for those wanting to showcase their work with a cute & clean style.</p>
+        </div>
+      </div><!-- /.row -->
+
     </div><!-- /col-lg-8 -->
+    <div class="col-2"></div>
   </div><!-- /row -->
 </div> <!-- /container -->
 {% endblock %}
