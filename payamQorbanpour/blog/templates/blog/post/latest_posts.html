@@ -1,7 +1,13 @@
-<ul class="list-unstyled">
-  {% for post in latest_posts %}
-    <li>
-      <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
+<div class="grid">
+  <ul class="list-unstyled">
+    {% for post in latest_posts %}
+      <li class="grid-item col-4 text-center">
+        <a href="{{ post.get_absolute_url }}">
+          <img class="col-12" src="{{ post.image.url }}" alt="{{ post.alt }}">
+        </a>
+        <h5 class="pt-1">{{ post.title }}</h5>
+        <p class="text-muted">{{ post.abstract }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

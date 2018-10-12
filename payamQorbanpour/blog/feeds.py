@@ -8,7 +8,7 @@ class LatestPostsFeed(Feed):
     link = '/blog/'
     description = 'New posts of my blog.'
     def items(self):
-        return Post.published.all()[:5]
+        return Post.published.all()[:8]
     def item_title(self, item):
         return item.title
     def item_description(self, item):

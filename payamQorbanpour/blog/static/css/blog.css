@@ -202,8 +202,6 @@ input[type=submit] {
   margin: 0;
 }
 
-
-.dir_rtl {
-    direction: rtl !important;
-    float: right !important;
+.grad {
+  background-image: linear-gradient(to bottom left, #0080ff, #00ffff);
 }
