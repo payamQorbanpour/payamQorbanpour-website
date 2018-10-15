@@ -20,7 +20,7 @@
   <div class="col-2">
   </div>
   <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
-    <h1 class="text-center">{{ post.title }}</h1>
+    <h1 class="text-center mt-4">{{ post.title }}</h1>
     <p class="blog-post-meta text-center">
       Published {{ post.publish }} by {{ post.author }}
       <span class="px-2">/</span>  <!-- Divider -->
@@ -28,7 +28,7 @@
       {{ total_comments }} comment{{ total_comments|pluralize }}
       {% endwith %}
     </p>
-    <p class="blog-post-meta text-center dir_rtl">
+    <p class="blog-post-meta text-center mt-5">
       {{ post.body|markdown }}
     </p>
   </div>
