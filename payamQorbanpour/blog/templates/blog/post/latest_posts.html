@@ -1,7 +1,7 @@
 <div class="grid">
   <ul class="list-unstyled">
     {% for post in latest_posts %}
-      <li class="grid-item col-4 text-center">
+      <li class="grid-item text-center col-lg-4 col-md-6 col-sm-12 col-xs-12">
         <a href="{{ post.get_absolute_url }}">
           <img class="col-12" src="{{ post.image.url }}" alt="{{ post.alt }}">
         </a>

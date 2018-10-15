@@ -29,12 +29,12 @@
 </div> <!-- /container -->
 
 <section id="skills" class="my-5">
-  <nav>
+  <nav class="col-12">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active" id="nav-skill-tab" data-toggle="tab" href="#nav-skill" role="tab" aria-controls="nav-skill" aria-selected="true">Skills</a>
       <a class="nav-item nav-link" id="nav-edu-tab" data-toggle="tab" href="#nav-edu" role="tab" aria-controls="nav-edu" aria-selected="false">Education</a>
       <!-- <a class="nav-item nav-link" id="nav-experience-tab" data-toggle="tab" href="#nav-experience" role="tab" aria-controls="nav-experience" aria-selected="false">Experiences</a> -->
-      <a class="nav-item nav-link" id="nav-other-tab" data-toggle="tab" href="#nav-other" role="tab" aria-controls="nav-other" aria-selected="false">Other interests</a>
+      <a class="nav-item nav-link" id="nav-other-tab" data-toggle="tab" href="#nav-other" role="tab" aria-controls="nav-other" aria-selected="false">Interests</a>
     </div>
   </nav>
   <div class="tab-content" id="nav-tabContent">
@@ -50,20 +50,20 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <h2>Database</h2>
           <ul>
             <li>Relational Databases (MySQL & MS Access)</li>
             <li>NoSQL Databases (MongoDB)</li>
           </ul>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <h2>Version Control</h2>
           <ul>
             <li>Git</li>
           </ul>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <h2>Operating system</h2>
           <ul>
             <li>Linux (Ubuntu distribution as the current OS)</li>
@@ -73,7 +73,7 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <h2>Web</h2>
           <ul>
             <li>PHP</li>
@@ -81,13 +81,15 @@
             <li>JavaScript</li>
           </ul>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <h2>Graphic Design</h2>
           <ul>
-            <li>Adobe Photoshop/ Illustrator/ Gimp(for linux)</li>
+            <li>Photoshop</li>
+            <li>Illustrator</li>
+            <li>Gimp</li>
           </ul>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <h2>Other</h2>
           <ul>
             <li>Familiar with Agile Development (scrum)</li>
@@ -98,20 +100,12 @@
         </div>
       </div>
 
-      <div class="">
-        <h2>Non-technical skills</h2>
-        <ul>
-          <li>Fluent in English (as the main technical language)</li>
-          <li>Communication and team-work abilities</li>
-        </ul>
-      </div>
-
     </div>
     <div class="tab-pane fade" id="nav-edu" role="tabpanel" aria-labelledby="nav-edu-tab">
       <div class="pt-3">
-        <h2>Non-technical skills</h2>
+        <h2>Academical</h2>
         <ul>
-          <li>Bachelor of Science in Computer Software [2013 - 2017]</li>
+          <li>Bachelor of Science in Computer Software [2013 ~ 2017]</li>
           <li>Currently stuyding Master of Science in Computer Software at <a href="http://srbiau.ac.ir">srbaiu</a></li>
         </ul>
       </div>
@@ -129,7 +123,7 @@
     <div class="tab-pane fade" id="nav-other" role="tabpanel" aria-labelledby="nav-other-tab">
 
       <div class="row pt-3">
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <h2>Reading</h2>
           <ul>
             <li>book</li>
@@ -138,11 +132,11 @@
             <p>Mostly scientific facts fascinate me.</p>
           </ul>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <h2>Astronomy</h2>
           <p>Love watching stars and constellations and thinking about them.</p>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <h2>Music</h2>
           <ul>
             <li>Amatuer Setar player</li>
@@ -157,15 +151,15 @@
 
 
 {% block posts %}
-  <section class="mt-5">
+  <section class="container-fluid mt-5">
+    <h1 class="font-bold text-center py-3">Latest Posts of the Blog</h1>
     <div class="row">
-      <div class="col-2"></div>
-      <div class="col-lg-8">
-        <h1 class="font-bold text-center py-3">Latest Posts of the Blog</h1>
+      <div class="col-lg-2 col-md-0 col-sm-0 col-xs-0"></div>
+      <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
         <hr>
           {% show_latest_posts 4 %}
       </div>
-      <div class="col-2"></div>
+      <div class="col-lg-2 col-md-0 col-sm-0 col-xs-0"></div>
     </div>
   </section>
 {% endblock %}
