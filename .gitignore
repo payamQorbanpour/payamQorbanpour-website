@@ -1,2 +1,4 @@
-pqEnv
-
+pqEnv/
+media_cdn/
+__pycache__
+db.sqlite3
